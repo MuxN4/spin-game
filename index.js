@@ -96,35 +96,29 @@ const transpose = (reels) => {
     }
 
     return rows;
-}
+};
 
 // Function to print the rows
 const printRows = (rows) => {
     for (const row of rows) {
         console.log(row.join(" | "));
     }
-}
+};
 
+// Function to calculate winnings
 const getWinnings = (rows, bet, lines) => {
     let winnings = 0;
 
     for (let row = 0; row < lines; row++) {
         const symbols = rows[row];
-        let allSame = true;
-
-        for (const symbol of symbols) {
-            if (symbol != symbols[0]) {
-                allSame = false;
-                break;
-            }
-        }
-        if (allSame) {
-            winnings += bet * SYMBOL_VALUES[symbols[0]]
+        if (symbols.every(symbol => symbol === symbols[0])) {
+            winnings += bet * SYMBOL_VALUES[symbols[0]];
         }
     }
     return winnings;
 };
 
+// Main game function
 const game = () => {
     let balance = deposit();
 
