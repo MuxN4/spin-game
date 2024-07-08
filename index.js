@@ -46,6 +46,7 @@ const getNumberOfLines = () => {
     }
 };
 
+// Function to get the bet per line
 const getBet = (balance, lines) => {
     while (true) {
         const bet = prompt("Enter the bet per line: ");
@@ -60,6 +61,7 @@ const getBet = (balance, lines) => {
 
 };
 
+// Function to spin the reels
 const spin = () => {
     const symbols = [];
     for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
@@ -82,6 +84,7 @@ const spin = () => {
     return reels;
 };
 
+// Function to transpose the reels into rows
 const transpose = (reels) => {
     const rows = [];
 
@@ -95,16 +98,10 @@ const transpose = (reels) => {
     return rows;
 }
 
+// Function to print the rows
 const printRows = (rows) => {
     for (const row of rows) {
-        let rowString = "";
-        for (const [i, symbol] of row.entries()) {
-            rowString += symbol
-            if (i != row.length - 1) {
-                rowString += " | "
-            }
-        }
-        console.log(rowString)
+        console.log(row.join(" | "));
     }
 }
 
