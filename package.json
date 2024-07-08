@@ -8,8 +8,8 @@
   "author": {
       "name": "Stephen Onyango",
       "email": "stev3npy@gmail.com"
-    }
-  "license": "ISC",
+    },
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "prompt-sync": "^4.2.0"
