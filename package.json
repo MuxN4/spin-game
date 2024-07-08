@@ -1,0 +1,17 @@
+{
+  "name": "slot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+      "name": "Stephen Onyango",
+      "email": "stev3npy@gmail.com"
+    }
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
