@@ -19,6 +19,9 @@ const SYMBOL_VALUES = {
     "D": 2
 }; 
 
+const JACKPOT_COMBINATION = ["A", "A", "A"];
+const JACCKPOT_REWARD = 100;
+
 //Function to deposit money
 const deposit = () => {
     while (true) {
@@ -106,16 +109,27 @@ const printRows = (rows) => {
     }
 };
 
-// Function to calculate winnings
+/// Function to calculate winnings
 const getWinnings = (rows, bet, lines) => {
     let winnings = 0;
+    let isJackpot = false;
 
     for (let row = 0; row < lines; row++) {
         const symbols = rows[row];
         if (symbols.every(symbol => symbol === symbols[0])) {
             winnings += bet * SYMBOL_VALUES[symbols[0]];
         }
+        // Check for jackpot
+        if (symbols.join('') === JACKPOT_COMBINATION.join('')) {
+            isJackpot = true;
+        }
     }
+
+    if (isJackpot) {
+        winnings += JACKPOT_REWARD;
+        console.log(chalk.magenta("JACKPOT! You won the jackpot reward of $") + chalk.magenta(JACKPOT_REWARD));
+    }
+
     return winnings;
 };
 
