@@ -1,5 +1,6 @@
 
 const prompt = require("prompt-sync")();
+const chalk = require("chalk");
 
 const ROWS = 3;
 const COLS = 3;
@@ -25,7 +26,7 @@ const deposit = () => {
         const numberDepositAmount = parseFloat(depositAmount);
 
         if (isNaN(numberDepositAmount) || numberDepositAmount <= 0) {
-            console.log("Invalid deposit amount,try again.")
+            console.log(chalk.red("Invalid deposit amount,try again."));  //color to error message
         }else{
             return numberDepositAmount
         }
@@ -39,7 +40,7 @@ const getNumberOfLines = () => {
         const numberOfLines = parseFloat(lines);
 
         if (isNaN(numberOfLines) || numberOfLines <= 0 || numberOfLines > 3) {
-            console.log("Invalid number of lines, try again.");
+            console.log(chalk.red("Invalid number of lines, try again.")); //color to error message
         } else {
             return numberOfLines;
         }
@@ -53,7 +54,7 @@ const getBet = (balance, lines) => {
         const numberOfBet = parseFloat(bet);
 
         if (isNaN(numberOfBet) || numberOfBet <= 0 || numberOfBet > balance / lines) {
-            console.log("Invalid bet,try again.")
+            console.log(chalk.red("Invalid bet,try again."));  //color to error message
         }else{
             return numberOfBet
         }
@@ -123,7 +124,7 @@ const game = () => {
     let balance = deposit();
 
     while (true) {
-        console.log("You have a balance of $" + balance)
+        console.log(chalk.green("You have a balance of $") + chalk.yellow(balance));
         const numberOfLines = getNumberOfLines();
         const bet = getBet(balance, numberOfLines);
         balance -= bet * numberOfLines;
@@ -135,10 +136,10 @@ const game = () => {
         const winnings = getWinnings(rows, bet, numberOfLines);
         balance += winnings;
 
-        console.log("You won, $" + winnings.toString());
+        console.log(chalk.green("You won, $") + chalk.yellow(winnings.toString()));  //Color to winnings message
         
         if (balance <= 0) {
-            console.log("You ran out of money1");
+            console.log(chalk.red("You ran out of money1")); //color to game over message
             break;
         }
         const playAgain = prompt("Do you want to play again (y/n)? ");
