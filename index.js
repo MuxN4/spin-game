@@ -1,6 +1,6 @@
-
-const prompt = require("prompt-sync")();
-const chalk = require("chalk");
+import chalk from 'chalk';
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
 const ROWS = 3;
 const COLS = 3;
