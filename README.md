@@ -47,7 +47,7 @@ To run the game on your local machine:
 2. **Setup**:
      - Create a new directory for the game and navigate into it.
      - Create a file named `index.js`
-     - Copy and paste the game code (including the jackpot feature) into index.js.
+     - Copy and paste the game code into `index.js`.
 
 3. **Run the Game**:
     - Open a terminal in the directory containing `index.js`.
