@@ -55,6 +55,3 @@ To run the game on your local machine:
       ```bash
       node index.js
       ```
-### Conclusion
-
-This README provides an overview of the Spinning Reel Game, instructions on how to play and run the game locally, and the full game code (`index.js`) for reference. Enjoy playing and aim for those big wins and jackpots!
